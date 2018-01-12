@@ -1,0 +1,41 @@
+<div fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" class="container mat-typography">
+    <div fxFlex fxHide.lt-md>
+        <picture>
+            <source media="(max-width: 1024px)" srcset="../assets/pexels-photo-1024w.jpg">
+            <source media="(max-width: 1600px)" srcset="../assets/pexels-photo-900w.jpg">
+            <source media="(max-width: 1920px)" srcset="../assets/pexels-photo-bg.jpg">
+            <img src="../assets/pexels-photo-bg.jpg" alt="Photo by Lukas from Pexels https://www.pexels.com/photo/chart-close-up-coffee-cup-590037/">
+        </picture>
+    </div>
+    <div fxLayout="column" fxFlex="30" fxFlex.md="40" fxFlex.sm="40" fxFlex.xs="10" class="form-container mat-elevation-z3">
+        <div fxFlex.gt-sm="15" fxFlex.lt-md="15" fxFlexAlign="center">
+            <img src="../assets/honeycomb-logo.svg" alt="honeycomb-logo" width="80px">
+        </div>
+        <div fxFlex fxFlex.sm="700px" fxFlex.xs="650px" class="form">
+            <form fxLayout="column" action="post" [formGroup]="loginForm" novalidate>
+                <mat-form-field>
+                    <input matInput placeholder="User ID" type="text" formControlName="userid" required>
+                </mat-form-field>
+                <p>Form value: {{ loginForm.controls.userid.errors.minLength | json }} </p>
+                <div *ngIf="loginForm.invalid && (loginForm.dirty || loginForm.touched )">
+                    <mat-error *ngIf="loginForm.controls.userid.errors.required">
+                        This field is <strong>required.</strong>
+                    </mat-error>
+                    <mat-error *ngIf="loginForm.controls.userid.errors.minLength">
+                            Minimum characters is <strong>{{ loginForm.controls.userid.errors.minLength.requiredLength }}.</strong>
+                    </mat-error>
+                </div>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" formControlName="password" required>
+                </mat-form-field>
+                <br />
+                <button fxFlexAlign.gt-xs="end" mat-raised-button color="primary">
+                    LOGIN
+                </button>
+            </form>
+        </div>
+        <div fxFlex="32px">
+            <p>Copyright &copy;2018</p>
+        </div>
+    </div>
+</div>
