@@ -6,10 +6,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  errors: String[];
 
   constructor(private fb: FormBuilder) {
     this.createForm();
@@ -24,8 +24,7 @@ export class LoginComponent implements OnInit {
     this.loginForm = this.fb.group({
       'userid': [
         '', [
-          Validators.required,
-          Validators.minLength(7)
+          Validators.required
         ]
       ],
       'password': [

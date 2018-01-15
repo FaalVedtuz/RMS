@@ -16,21 +16,22 @@
                 <mat-form-field>
                     <input matInput placeholder="User ID" type="text" formControlName="userid" required>
                 </mat-form-field>
-                <p>Form value: {{ loginForm.controls.userid.errors.minLength | json }} </p>
                 <div *ngIf="loginForm.invalid && (loginForm.dirty || loginForm.touched )">
                     <mat-error *ngIf="loginForm.controls.userid.errors.required">
                         This field is <strong>required.</strong>
-                    </mat-error>
-                    <mat-error *ngIf="loginForm.controls.userid.errors.minLength">
-                            Minimum characters is <strong>{{ loginForm.controls.userid.errors.minLength.requiredLength }}.</strong>
                     </mat-error>
                 </div>
                 <mat-form-field>
                     <input matInput placeholder="Password" type="password" formControlName="password" required>
                 </mat-form-field>
+                <div *ngIf="loginForm.invalid && (loginForm.dirty || loginForm.touched )">
+                    <mat-error *ngIf="loginForm.controls.userid.errors.required">
+                        This field is <strong>required.</strong>
+                    </mat-error>
+                </div>
                 <br />
                 <button fxFlexAlign.gt-xs="end" mat-raised-button color="primary">
-                    LOGIN
+                    LOGIN   
                 </button>
             </form>
         </div>
